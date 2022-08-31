@@ -7,17 +7,23 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	
+
 	<!-- Define the dependency -->
 	<bean id="myFortune"
 		class="com.sweta.springdemo.ioc.HappyFortuneService">
 	</bean>
 
 	<bean id="trackerCoach"
-		class="com.sweta.springdemo.ioc.TrackCoach"
-		scope="prototype"
-		init-method="doMyStartupStuff" destroy-method="doMyCleanupStuff">
-		
+		class="com.sweta.springdemo.ioc.TrackCoach" scope="prototype"
+		init-method="doMyStartupStuff" destroy-method="destroy">
+
 		<!-- Construction injection -->
 		<constructor-arg ref="myFortune"></constructor-arg>
+	</bean>
+	
+	<!-- bean for custom destroy impl for prototype scope -->
+	<bean id="customProcessor"
+		class="com.sweta.springdemo.ioc.MyCustomBeanProcessor">
 	</bean>
 </beans>

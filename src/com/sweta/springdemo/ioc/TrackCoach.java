@@ -1,6 +1,8 @@
 package com.sweta.springdemo.ioc;
 
-public class TrackCoach implements Coach {
+import org.springframework.beans.factory.DisposableBean;
+
+public class TrackCoach implements Coach,DisposableBean {
 
 	public TrackCoach() {
 	}
@@ -29,6 +31,11 @@ public class TrackCoach implements Coach {
 	//add destory method -  bean lifecycle
 	public void doMyCleanupStuff() {
 		System.out.println("TrackCoach :: Inside method :: destroy demo");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("TrackCoach :: Inside method :: destroy demo for prototype");
 	}
 
 }

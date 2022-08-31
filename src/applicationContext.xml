@@ -7,6 +7,8 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:property-placeholder location="classpath:sport.properties"/>
+
 	<!-- Define beans here -->
 	<!-- <bean id="trackCoach" class="com.sweta.springdemo.ioc.TrackCoach"> 
 		</bean> -->
@@ -37,13 +39,8 @@
 		<property name="fortuneService" ref="myFortune"></property>
 		
 		<!-- inject liteal values -->
-		<property name="emailAddress" value="sweta.bhavsar78@gmail.com"></property>
-		<property name="team" value="India"></property>
+		<property name="emailAddress" value="${foo.email}"></property>
+		<property name="team" value="${foo.team}"></property>
 
 	</bean>
-
-
-
-
-
 </beans>

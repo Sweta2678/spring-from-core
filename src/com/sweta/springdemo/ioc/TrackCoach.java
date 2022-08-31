@@ -20,5 +20,15 @@ public class TrackCoach implements Coach {
 	public String getDailyFortune() {
 		return "Just do it " + fortuneService.getFortune();
 	}
+	
+	//add init method - bean lifecycle
+	public void doMyStartupStuff() {
+		System.out.println("TrackCoach :: Inside method :: startup demo");
+	}
+	
+	//add destory method -  bean lifecycle
+	public void doMyCleanupStuff() {
+		System.out.println("TrackCoach :: Inside method :: destroy demo");
+	}
 
 }

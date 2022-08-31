@@ -21,6 +21,10 @@
 	<bean id="myFortune"
 		class="com.sweta.springdemo.ioc.HappyFortuneService">
 	</bean>
+	
+	<bean id="myRandomFortune"
+		class="com.sweta.springdemo.ioc.RandomFortuneService">
+	</bean>
 
 	<!-- <bean id="baseBallCoach" class="com.sweta.springdemo.ioc.BaseBallCoach"> 
 		Construction injection <constructor-arg ref="myFortune"></constructor-arg> 
@@ -41,6 +45,17 @@
 		<!-- inject liteal values -->
 		<property name="emailAddress" value="${foo.email}"></property>
 		<property name="team" value="${foo.team}"></property>
+	</bean>
+	
+	
+	<bean id="myBasketBallCoach"
+		class="com.sweta.springdemo.ioc.BasketBallCoach">
 
+		<!-- setter injection -->
+		<property name="fortuneService" ref="myRandomFortune"></property>
+		
+		<!-- inject liteal values -->
+		<property name="email" value="${foo.email}"></property>
+		<property name="username" value="Sweta78"></property>
 	</bean>
 </beans>
